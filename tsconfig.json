@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "lib": ["es2023", "DOM"],
+    "target": "ESNext",
+    "module": "nodenext",
+    "sourceMap": true
+  }
+}
