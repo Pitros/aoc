@@ -61,4 +61,6 @@ const sol2 = () => {
 };
 
 sol1();
+console.time('p2');
 sol2();
+console.timeEnd('p2');

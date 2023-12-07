@@ -49,5 +49,7 @@ const sol2 = () => {
     return lowest;
 };
 sol1();
+console.time('p2');
 sol2();
+console.timeEnd('p2');
 //# sourceMappingURL=index.js.map
