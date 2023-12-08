@@ -22,6 +22,15 @@ const sol1 = () => {
   return tries;
 };
 
+const gcd = (a: number, b: number): number => {
+  if (b === 0) return a;
+  return gcd(b, a % b);
+};
+
+const lcm = (a: number, b: number): number => {
+  return (a * b) / gcd(a, b);
+};
+
 const sol2 = () => {
   const nodes = Object.keys(map).filter((node) => node.endsWith("A"));
 
@@ -44,19 +53,26 @@ const sol2 = () => {
   }
 
   const starts = Object.values(hits).map((v) => v[0]);
-  const matches = Object.values(hits).map((v) => v[0]);
 
-  while (new Set(matches).size !== 1) {
-    const min = Math.min(...matches);
-    matches.forEach((match, i) => {
-      if (match === min) {
-        matches[i] += starts[i];
-      }
-    });
-  }
+  // brute force
+  //   const matches = Object.values(hits).map((v) => v[0]);
 
-  return matches[0];
+  //   while (new Set(matches).size !== 1) {
+  //     const min = Math.min(...matches);
+  //     matches.forEach((match, i) => {
+  //       if (match === min) {
+  //         matches[i] += starts[i];
+  //       }
+  //     });
+  //   }
+
+  //   return matches[0];
+
+  // lcm
+  return starts.reduce((acc, curr) => lcm(acc, curr), 1);
 };
 
 console.log(sol1());
+console.time("sol2");
 console.log(sol2());
+console.timeEnd("sol2");
